@@ -1,0 +1,11 @@
+{
+    "name": "vs-code-2",
+    "version": "1.0.0",
+    "dependencies": {
+        "webpack": "3.11.0",
+        "lodash": "4.17.5"
+    },
+    "scripts": {
+        "build": "webpack"
+    }
+}
