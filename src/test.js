@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import {join} from 'lodash'
 import {log} from './inc.js'
 
 const arr = ["hello","webpack", "!"]
@@ -6,7 +6,7 @@ const arr = ["hello","webpack", "!"]
 
 log("hello webpack!")
 
-log(_.join(["hello","webpack", "!"],' '))
+log(_(["hello","webpack", "!"]).join(' '))
 
 log(arr.reduce((p, c) => p += c, ""))
 
