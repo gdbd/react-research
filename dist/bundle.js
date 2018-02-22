@@ -86,6 +86,8 @@ Object(__WEBPACK_IMPORTED_MODULE_1__inc_js__["a" /* log */])(arr.reduce((p, c) =
 
 //[...arr].map((x) => a(x))
 
+Object(__WEBPACK_IMPORTED_MODULE_1__inc_js__["a" /* log */])("new string!")
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {

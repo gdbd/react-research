@@ -3,7 +3,9 @@
     "version": "1.0.0",
     "dependencies": {
         "webpack": "3.11.0",
-        "lodash": "4.17.5"
+        "lodash": "4.17.5",
+        "gulp": "3.9.1",
+        "webpack-stream": "4.0.2"
     },
     "scripts": {
         "build": "webpack"

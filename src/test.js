@@ -11,3 +11,5 @@ log(_.join(["hello","webpack", "!"],' '))
 log(arr.reduce((p, c) => p += c, ""))
 
 //[...arr].map((x) => a(x))
+
+log("new string!")
