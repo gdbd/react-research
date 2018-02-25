@@ -60,20 +60,19 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 13:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _lodash = __webpack_require__(14);
+var _lodash = __webpack_require__(1);
 
-var _inc = __webpack_require__(15);
+var _inc = __webpack_require__(2);
 
 var arr = ["hello", "webpack", "!"];
 
@@ -90,15 +89,13 @@ var arr = ["hello", "webpack", "!"];
 (0, _inc.log)("new string!");
 
 /***/ }),
-
-/***/ 14:
+/* 1 */
 /***/ (function(module, exports) {
 
 module.exports = undefined;
 
 /***/ }),
-
-/***/ 15:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -112,5 +109,4 @@ var log = exports.log = function log(str) {
 };
 
 /***/ })
-
-/******/ });
+/******/ ]);

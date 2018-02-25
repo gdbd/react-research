@@ -22,6 +22,7 @@ module.exports ={
             amd: "lodash",
             root: "_" // indicates global variable
         },
-        "react":"React"
+        "react":"React",
+        "react-dom": "ReactDOM"
     }
 }

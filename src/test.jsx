@@ -2,7 +2,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const thediv = () => <div>test</div>
+const TheDiv = () => <div>test</div>
 
 
-ReactDOM.render(<thediv/>, document.getElementById('container'))
+$(document).ready(() => {
+    ReactDOM.render(<TheDiv/>, document.getElementById('container'))
+})
+
