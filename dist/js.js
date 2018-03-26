@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,9 +70,23 @@
 "use strict";
 
 
-var _lodash = __webpack_require__(1);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var log = exports.log = function log(str) {
+  return console.log(str);
+};
 
-var _inc = __webpack_require__(2);
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _lodash = __webpack_require__(2);
+
+var _inc = __webpack_require__(0);
 
 var arr = ["hello", "webpack", "!"];
 
@@ -89,24 +103,10 @@ var arr = ["hello", "webpack", "!"];
 (0, _inc.log)("new string!");
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports) {
 
 module.exports = undefined;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var log = exports.log = function log(str) {
-  return console.log(str);
-};
 
 /***/ })
 /******/ ]);
