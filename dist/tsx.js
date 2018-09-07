@@ -81,70 +81,80 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/test.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/test.tsx");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/inc.js":
-/*!********************!*\
-  !*** ./src/inc.js ***!
-  \********************/
+/***/ "./src/test.tsx":
+/*!**********************!*\
+  !*** ./src/test.tsx ***!
+  \**********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(/*! react */ "react");
+var ReactDOM = __webpack_require__(/*! react-dom */ "react-dom");
+var TheDiv = function () { return React.createElement("div", null); };
+var TestComponent2 = /** @class */ (function (_super) {
+    __extends(TestComponent2, _super);
+    function TestComponent2() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TestComponent2.prototype.render = function () {
+        return React.createElement("div", null,
+            "component and ",
+            React.createElement(TheDiv, null),
+            " ",
+            this.props.msg);
+    };
+    return TestComponent2;
+}(React.Component));
+exports.TestComponent2 = TestComponent2;
+$(document).ready(function () {
+    ReactDOM.render(React.createElement(TestComponent2, { msg: "tsx" }), document.getElementById('container2'));
 });
-var log = exports.log = function log(str) {
-  return console.log(str);
-};
+
 
 /***/ }),
 
-/***/ "./src/test.js":
-/*!*********************!*\
-  !*** ./src/test.js ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _lodash = __webpack_require__(/*! lodash */ "lodash");
-
-var _inc = __webpack_require__(/*! ./inc.js */ "./src/inc.js");
-
-var arr = ["hello", "webpack", "!"];
-
-(0, _inc.log)("hello webpack!");
-
-(0, _inc.log)(_(["hello", "webpack", "!"]).join(' '));
-
-(0, _inc.log)(arr.reduce(function (p, c) {
-  return p += c;
-}, ""));
-
-//[...arr].map((x) => a(x))
-
-(0, _inc.log)("new string!");
-
-/***/ }),
-
-/***/ "lodash":
-/*!****************************************************************!*\
-  !*** external {"commonjs":"lodash","amd":"lodash","root":"_"} ***!
-  \****************************************************************/
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = undefined;
+module.exports = React;
+
+/***/ }),
+
+/***/ "react-dom":
+/*!***************************!*\
+  !*** external "ReactDOM" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ReactDOM;
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=js.js.map
+//# sourceMappingURL=tsx.js.map

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/test.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/test.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -105,46 +105,22 @@ var log = exports.log = function log(str) {
 
 /***/ }),
 
-/***/ "./src/test.js":
+/***/ "./src/test.ts":
 /*!*********************!*\
-  !*** ./src/test.js ***!
+  !*** ./src/test.ts ***!
   \*********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-
-var _lodash = __webpack_require__(/*! lodash */ "lodash");
-
-var _inc = __webpack_require__(/*! ./inc.js */ "./src/inc.js");
-
+Object.defineProperty(exports, "__esModule", { value: true });
+var inc_1 = __webpack_require__(/*! ./inc */ "./src/inc.js");
 var arr = ["hello", "webpack", "!"];
+inc_1.log("this is from typescript!");
 
-(0, _inc.log)("hello webpack!");
-
-(0, _inc.log)(_(["hello", "webpack", "!"]).join(' '));
-
-(0, _inc.log)(arr.reduce(function (p, c) {
-  return p += c;
-}, ""));
-
-//[...arr].map((x) => a(x))
-
-(0, _inc.log)("new string!");
-
-/***/ }),
-
-/***/ "lodash":
-/*!****************************************************************!*\
-  !*** external {"commonjs":"lodash","amd":"lodash","root":"_"} ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = undefined;
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=js.js.map
+//# sourceMappingURL=ts.js.map

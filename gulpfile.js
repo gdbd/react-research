@@ -9,3 +9,7 @@ gulp.task('default', () => {
         .pipe(webpack(webpackConfig))
         .pipe(gulp.dest('dist/'))
 })
+
+gulp.task('test', () => {
+
+})

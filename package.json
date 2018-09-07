@@ -2,19 +2,30 @@
     "name": "vs-code-2",
     "version": "1.0.0",
     "dependencies": {
-        "webpack": "3.11.0",
-        "lodash": "4.17.5",
-        "gulp": "3.9.1",
-        "webpack-stream": "4.0.2",
-        "react": "16.2.0",
-        "react-dom": "16.2.0",
+        "@types/jquery": "3.3.6",
+        "@types/react": "16.4.13",
+        "@types/react-dom": "16.0.7",
+        "awesome-typescript-loader": "5.2.1",
         "babel-core": "6.26.0",
         "babel-loader": "7.1.2",
         "babel-preset-env": "1.6.1",
         "babel-preset-react": "6.24.1",
-        "jquery": "3.3.1"
+        "gulp": "3.9.1",
+        "jquery": "3.3.1",
+        "lodash": "4.17.5",
+        "react": "16.2.0",
+        "react-dom": "16.2.0",
+        "source-map-loader": "0.2.4",
+        "typescript": "3.0.3",
+        "webpack": "3.11.0",
+        "webpack-stream": "5.1.1",
+        "css-loader": "1.0.0"
     },
     "scripts": {
-        "build": "webpack"
+        "build": "webpack",
+        "serve": "http-server"
+    },
+    "devDependencies": {
+        "http-server":"0.11.1"
     }
 }
