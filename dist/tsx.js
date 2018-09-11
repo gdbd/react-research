@@ -108,27 +108,84 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "react");
 var ReactDOM = __webpack_require__(/*! react-dom */ "react-dom");
-var TheDiv = function () { return React.createElement("div", null); };
+var redux_1 = __webpack_require__(/*! redux */ "redux");
+var react_redux_1 = __webpack_require__(/*! react-redux */ "react-redux");
+var AppState = /** @class */ (function () {
+    function AppState() {
+    }
+    return AppState;
+}());
+exports.AppState = AppState;
 var TestComponent2 = /** @class */ (function (_super) {
     __extends(TestComponent2, _super);
     function TestComponent2() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     TestComponent2.prototype.render = function () {
+        var _a = this.props, msg = _a.msg, setMessage = _a.setMessage, msg_temp = _a.msg_temp, tempChanged = _a.tempChanged;
         return React.createElement("div", null,
-            "component and ",
-            React.createElement(TheDiv, null),
-            " ",
-            this.props.msg);
+            "connected component, state message: ",
+            msg,
+            React.createElement("br", null),
+            React.createElement("input", { type: "text", value: msg_temp, onChange: function (e) { return tempChanged(e.target.value); } }),
+            React.createElement("br", null),
+            React.createElement("button", { onClick: function (e) { return setMessage(msg_temp); } }, "set message"));
     };
     return TestComponent2;
 }(React.Component));
-exports.TestComponent2 = TestComponent2;
+var mapState = function (state) {
+    return {
+        msg_temp: state.msg_temp,
+        msg: state.msg
+    };
+};
+var mapDispatch = function (dispatch) {
+    return {
+        setMessage: function (val) { return dispatch({ type: "SET_MSG", message: val }); },
+        tempChanged: function (val) { return dispatch({ type: "TEMP_CHANGED", text: val }); }
+    };
+};
+exports.Connected = react_redux_1.connect(mapState, mapDispatch)(TestComponent2);
+function reducer(state, action) {
+    console.log(action);
+    var ns2 = __assign({}, state);
+    switch (action.type) {
+        case "INIT":
+            ns2.msg = action.message;
+            ns2.msg_temp = action.temp;
+            break;
+        case "SET_MSG":
+            ns2.msg = action.message;
+            break;
+        case "TEMP_CHANGED":
+            ns2.msg_temp = action.text;
+            break;
+    }
+    return ns2;
+}
 $(document).ready(function () {
-    ReactDOM.render(React.createElement(TestComponent2, { msg: "tsx" }), document.getElementById('container2'));
+    var store = redux_1.createStore(reducer, new AppState());
+    /*store.subscribe(() => {
+        console.log("listener: ")
+        console.log(store.getState())
+    })*/
+    store.dispatch({ type: "INIT", message: "initial", temp: "enter message" });
+    ReactDOM.render(React.createElement(react_redux_1.Provider, { store: store },
+        React.createElement(exports.Connected, null)), document.getElementById('container2'));
 });
 
 
@@ -153,6 +210,28 @@ module.exports = React;
 /***/ (function(module, exports) {
 
 module.exports = ReactDOM;
+
+/***/ }),
+
+/***/ "react-redux":
+/*!*****************************!*\
+  !*** external "ReactRedux" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ReactRedux;
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "Redux" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = Redux;
 
 /***/ })
 

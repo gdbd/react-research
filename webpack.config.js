@@ -46,7 +46,9 @@ module.exports ={
             root: "_" // indicates global variable
         },
         "react":"React",
-        "react-dom": "ReactDOM"
+        "react-dom": "ReactDOM",
+        "redux": "Redux",
+        "react-redux": "ReactRedux"
     },
     devServer:{
         contentBase: path.join(__dirname, 'dist'),
