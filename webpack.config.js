@@ -4,9 +4,9 @@ module.exports ={
     mode: 'development',
     entry: {
         js: './src/test.js', 
-        jsx: './src/test.jsx',
+        jsx: './src/component1.jsx',
         ts: './src/test.ts',
-        tsx: './src/test.tsx'
+        app: './src/app/app.tsx'
     },
     output: {
         filename: '[name].js',

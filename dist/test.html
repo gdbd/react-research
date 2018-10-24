@@ -7,10 +7,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script src="http://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.core.js"></script>
         <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
@@ -20,12 +16,16 @@
         <script src="js.js"></script>
         <script src="jsx.js"></script>
         <script src="ts.js"></script>
-        <script src="tsx.js"></script>
+        <script src="app.js"></script>
+        <script src="jsx.js"></script>
     </head>
-    <body>
-
-        <div id="container"></div>
+    <body> 
+        <div id="container1"></div>
         <div id="container2"></div>
 
+        <script>
+           // window.global.init.component1("container1")
+            window.global.init.component2("container2")
+        </script>
     </body>
 </html>
