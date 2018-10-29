@@ -3,9 +3,9 @@ const path = require('path')
 module.exports ={
     mode: 'development',
     entry: {
-        js: './src/test.js', 
+      /*  js: './src/test.js', 
         jsx: './src/component1.jsx',
-        ts: './src/test.ts',
+        ts: './src/test.ts',*/
         app: './src/app/app.tsx'
     },
     output: {
@@ -48,7 +48,8 @@ module.exports ={
         "react":"React",
         "react-dom": "ReactDOM",
         "redux": "Redux",
-        "react-redux": "ReactRedux"
+        "react-redux": "ReactRedux",
+        "react-router-dom": "ReactRouterDom"
     },
     devServer:{
         contentBase: path.join(__dirname, 'dist'),

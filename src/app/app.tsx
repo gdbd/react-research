@@ -2,9 +2,11 @@ import * as React from 'react'
 import { createStore, Dispatch } from 'redux'
 import * as ReactDOM from 'react-dom'
 import{ Provider } from 'react-redux'
+import { Component1 } from './component1'
 import { Component2 } from './component2'
 import { AppState } from './state'
 import { reducer } from './reducer'
+import { HashRouter, BrowserRouter, Switch, Route } from 'react-router-dom'
 
 
 function init(container: string) {
@@ -16,11 +18,19 @@ function init(container: string) {
     })*/
 
     store.dispatch({ type: "INIT", message: "initial", temp: "enter message" })
-    ReactDOM.render(<Provider store={store}><Component2 /></Provider>, document.getElementById(container))
+    ReactDOM.render(
+    <Provider store={store}>
+        <HashRouter>
+            <Switch>
+                <Route exact path="/" component={Component1} />
+                <Route path="/2" component={Component2} />
+            </Switch>
+        </HashRouter>
+    </Provider>, document.getElementById(container))
 }
 
 (window as any).global = {
     init: {
-        component2: (container:string)=>init(container)
+        app: (container:string)=>init(container)
     }
 }

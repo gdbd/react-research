@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { AppState } from './state'
+import { Link } from 'react-router-dom'
 
 interface TestProps { 
     msg: string 
@@ -20,6 +21,8 @@ class TestComponent2 extends React.Component<TestProps, {}>{
                 <input type="text" value={msg_temp} onChange={e=>tempChanged(e.target.value)} />        
                 <br/>            
                 <button onClick={e=>setMessage(msg_temp)}>set message</button>
+                <br/>            
+                <Link to="/1">goto #1</Link>
             </div>
     }
 }
