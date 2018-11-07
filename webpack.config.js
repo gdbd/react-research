@@ -49,7 +49,7 @@ module.exports ={
         "react-dom": "ReactDOM",
         "redux": "Redux",
         "react-redux": "ReactRedux",
-        "react-router-dom": "ReactRouterDom"
+        "react-router-dom": "ReactRouterDOM"
     },
     devServer:{
         contentBase: path.join(__dirname, 'dist'),

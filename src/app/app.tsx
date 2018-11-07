@@ -23,6 +23,7 @@ function init(container: string) {
         <HashRouter>
             <Switch>
                 <Route exact path="/" component={Component1} />
+                <Route exact path="/1" component={Component1} />
                 <Route path="/2" component={Component2} />
             </Switch>
         </HashRouter>

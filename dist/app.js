@@ -116,6 +116,7 @@ function init(container) {
         React.createElement(react_router_dom_1.HashRouter, null,
             React.createElement(react_router_dom_1.Switch, null,
                 React.createElement(react_router_dom_1.Route, { exact: true, path: "/", component: component1_1.Component1 }),
+                React.createElement(react_router_dom_1.Route, { exact: true, path: "/1", component: component1_1.Component1 }),
                 React.createElement(react_router_dom_1.Route, { path: "/2", component: component2_1.Component2 })))), document.getElementById(container));
 }
 window.global = {
@@ -334,12 +335,12 @@ module.exports = ReactRedux;
 
 /***/ "react-router-dom":
 /*!*********************************!*\
-  !*** external "ReactRouterDom" ***!
+  !*** external "ReactRouterDOM" ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ReactRouterDom;
+module.exports = ReactRouterDOM;
 
 /***/ }),
 
