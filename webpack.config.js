@@ -6,7 +6,8 @@ module.exports ={
       /*  js: './src/test.js', 
         jsx: './src/component1.jsx',
         ts: './src/test.ts',*/
-        app: './src/app/app.tsx'
+        app: './src/app/app.tsx',
+        appMob: './src/app-mob/app.tsx'
     },
     output: {
         filename: '[name].js',
@@ -22,7 +23,7 @@ module.exports ={
             exclude: /node_modules/,          
             loader: 'babel-loader',
             query: {
-                presets: ['env','react']
+                presets: ['env','react']              
             }            
         },{
             test: /\.tsx?$/,
@@ -49,7 +50,8 @@ module.exports ={
         "react-dom": "ReactDOM",
         "redux": "Redux",
         "react-redux": "ReactRedux",
-        "react-router-dom": "ReactRouterDOM"
+        "react-router-dom": "ReactRouterDOM",
+        "mobx": "mobx"
     },
     devServer:{
         contentBase: path.join(__dirname, 'dist'),
