@@ -11,7 +11,7 @@ export class Component1 extends React.Component<TestProps, {}>{
     render(){
         const {msg} = this.props
         return <div>
-                connected component, state message: {msg}    
+                not connected component, state message: {msg}    
                 <br/>
                 <input type="text" value={msg} />        
                 <br/>  

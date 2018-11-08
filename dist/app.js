@@ -119,11 +119,9 @@ function init(container) {
                 React.createElement(react_router_dom_1.Route, { exact: true, path: "/1", component: component1_1.Component1 }),
                 React.createElement(react_router_dom_1.Route, { path: "/2", component: component2_1.Component2 })))), document.getElementById(container));
 }
-window.global = {
-    init: {
-        app: function (container) { return init(container); }
-    }
-};
+window.global = window.global || {};
+window.global.init = window.global.init || {};
+window.global.init["app"] = function (container) { return init(container); };
 
 
 /***/ }),
@@ -161,7 +159,7 @@ var Component1 = /** @class */ (function (_super) {
     Component1.prototype.render = function () {
         var msg = this.props.msg;
         return React.createElement("div", null,
-            "connected component, state message: ",
+            "not connected component, state message: ",
             msg,
             React.createElement("br", null),
             React.createElement("input", { type: "text", value: msg }),

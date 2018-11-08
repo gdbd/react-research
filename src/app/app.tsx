@@ -30,8 +30,8 @@ function init(container: string) {
     </Provider>, document.getElementById(container))
 }
 
-(window as any).global = {
-    init: {
-        app: (container:string)=>init(container)
-    }
-}
+
+
+(window as any).global = (window as any).global || {};
+(window as any).global.init = (window as any).global.init || {};
+(window as any).global.init["app"] = (container:string)=>init(container)
