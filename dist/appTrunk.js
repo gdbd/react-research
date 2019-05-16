@@ -81,15 +81,76 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/app/app.tsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/app-trunk/app.tsx");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/app/app.tsx":
-/*!*************************!*\
-  !*** ./src/app/app.tsx ***!
-  \*************************/
+/***/ "./node_modules/redux-thunk/es/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/redux-thunk/es/index.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function createThunkMiddleware(extraArgument) {
+  return function (_ref) {
+    var dispatch = _ref.dispatch,
+        getState = _ref.getState;
+    return function (next) {
+      return function (action) {
+        if (typeof action === 'function') {
+          return action(dispatch, getState, extraArgument);
+        }
+
+        return next(action);
+      };
+    };
+  };
+}
+
+var thunk = createThunkMiddleware();
+thunk.withExtraArgument = createThunkMiddleware;
+
+/* harmony default export */ __webpack_exports__["default"] = (thunk);
+
+/***/ }),
+
+/***/ "./src/app-trunk/actions.ts":
+/*!**********************************!*\
+  !*** ./src/app-trunk/actions.ts ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.doChangeText = function (val) {
+    return function (dispatch, getState) {
+        var state = getState();
+        dispatch({ type: "TEMP_CHANGED", text: val });
+    };
+};
+function doChangeMessage(message) {
+    return function (dispatch, getState) {
+        var state = getState();
+        setTimeout(function () {
+            dispatch({ type: "SET_MSG", message: message });
+        }, 1000);
+    };
+}
+exports.doChangeMessage = doChangeMessage;
+
+
+/***/ }),
+
+/***/ "./src/app-trunk/app.tsx":
+/*!*******************************!*\
+  !*** ./src/app-trunk/app.tsx ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -100,36 +161,27 @@ var React = __webpack_require__(/*! react */ "react");
 var redux_1 = __webpack_require__(/*! redux */ "redux");
 var ReactDOM = __webpack_require__(/*! react-dom */ "react-dom");
 var react_redux_1 = __webpack_require__(/*! react-redux */ "react-redux");
-var component1_1 = __webpack_require__(/*! ./component1 */ "./src/app/component1.tsx");
-var component2_1 = __webpack_require__(/*! ./component2 */ "./src/app/component2.tsx");
-var state_1 = __webpack_require__(/*! ./state */ "./src/app/state.ts");
-var reducer_1 = __webpack_require__(/*! ./reducer */ "./src/app/reducer.ts");
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "react-router-dom");
+var component2_1 = __webpack_require__(/*! ./component2 */ "./src/app-trunk/component2.tsx");
+var state_1 = __webpack_require__(/*! ./state */ "./src/app-trunk/state.ts");
+var reducer_1 = __webpack_require__(/*! ./reducer */ "./src/app-trunk/reducer.ts");
+var redux_thunk_1 = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 function init(container) {
-    var store = redux_1.createStore(reducer_1.reducer, new state_1.AppState());
-    /*store.subscribe(() => {
-        console.log("listener: ")
-        console.log(store.getState())
-    })*/
-    store.dispatch({ type: "INIT", message: "initial", temp: "enter message" });
+    var store = redux_1.createStore(reducer_1.reducer, new state_1.AppState(), redux_1.applyMiddleware(redux_thunk_1.default));
+    store.dispatch({ type: "INIT", message: "initial saga", temp: "enter message" });
     ReactDOM.render(React.createElement(react_redux_1.Provider, { store: store },
-        React.createElement(react_router_dom_1.HashRouter, null,
-            React.createElement(react_router_dom_1.Switch, null,
-                React.createElement(react_router_dom_1.Route, { exact: true, path: "/", component: component1_1.Component1 }),
-                React.createElement(react_router_dom_1.Route, { exact: true, path: "/1", component: component1_1.Component1 }),
-                React.createElement(react_router_dom_1.Route, { path: "/2", component: component2_1.Component2 })))), document.getElementById(container));
+        React.createElement(component2_1.Component2, null)), document.getElementById(container));
 }
 window.global = window.global || {};
 window.global.init = window.global.init || {};
-window.global.init["app"] = function (container) { return init(container); };
+window.global.init["appThunk"] = function (container) { return init(container); };
 
 
 /***/ }),
 
-/***/ "./src/app/component1.tsx":
-/*!********************************!*\
-  !*** ./src/app/component1.tsx ***!
-  \********************************/
+/***/ "./src/app-trunk/component2.tsx":
+/*!**************************************!*\
+  !*** ./src/app-trunk/component2.tsx ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -150,55 +202,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "react");
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "react-router-dom");
-var Component1 = /** @class */ (function (_super) {
-    __extends(Component1, _super);
-    function Component1() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Component1.prototype.render = function () {
-        var msg = this.props.msg;
-        return React.createElement("div", null,
-            "not connected component, state message: ",
-            msg,
-            React.createElement("br", null),
-            React.createElement("input", { type: "text", value: msg }),
-            React.createElement("br", null),
-            React.createElement(react_router_dom_1.Link, { to: "/2" }, "goto #2"));
-    };
-    return Component1;
-}(React.Component));
-exports.Component1 = Component1;
-
-
-/***/ }),
-
-/***/ "./src/app/component2.tsx":
-/*!********************************!*\
-  !*** ./src/app/component2.tsx ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(/*! react */ "react");
+//import { Dispatch } from 'redux'
 var react_redux_1 = __webpack_require__(/*! react-redux */ "react-redux");
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "react-router-dom");
+var actions_1 = __webpack_require__(/*! ./actions */ "./src/app-trunk/actions.ts");
 var TestComponent2 = /** @class */ (function (_super) {
     __extends(TestComponent2, _super);
     function TestComponent2() {
@@ -213,8 +219,7 @@ var TestComponent2 = /** @class */ (function (_super) {
             React.createElement("input", { type: "text", value: msg_temp, onChange: function (e) { return tempChanged(e.target.value); } }),
             React.createElement("br", null),
             React.createElement("button", { onClick: function (e) { return setMessage(msg_temp); } }, "set message"),
-            React.createElement("br", null),
-            React.createElement(react_router_dom_1.Link, { to: "/1" }, "goto #1"));
+            React.createElement("br", null));
     };
     return TestComponent2;
 }(React.Component));
@@ -226,8 +231,8 @@ var mapState = function (state) {
 };
 var mapDispatch = function (dispatch) {
     return {
-        setMessage: function (val) { return dispatch({ type: "SET_MSG", message: val }); },
-        tempChanged: function (val) { return dispatch({ type: "TEMP_CHANGED", text: val }); }
+        setMessage: function (val) { return dispatch(actions_1.doChangeMessage(val)); },
+        tempChanged: function (val) { return dispatch(actions_1.doChangeText(val)); }
     };
 };
 exports.Component2 = react_redux_1.connect(mapState, mapDispatch)(TestComponent2);
@@ -235,10 +240,10 @@ exports.Component2 = react_redux_1.connect(mapState, mapDispatch)(TestComponent2
 
 /***/ }),
 
-/***/ "./src/app/reducer.ts":
-/*!****************************!*\
-  !*** ./src/app/reducer.ts ***!
-  \****************************/
+/***/ "./src/app-trunk/reducer.ts":
+/*!**********************************!*\
+  !*** ./src/app-trunk/reducer.ts ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -278,10 +283,10 @@ exports.reducer = reducer;
 
 /***/ }),
 
-/***/ "./src/app/state.ts":
-/*!**************************!*\
-  !*** ./src/app/state.ts ***!
-  \**************************/
+/***/ "./src/app-trunk/state.ts":
+/*!********************************!*\
+  !*** ./src/app-trunk/state.ts ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -331,17 +336,6 @@ module.exports = ReactRedux;
 
 /***/ }),
 
-/***/ "react-router-dom":
-/*!*********************************!*\
-  !*** external "ReactRouterDOM" ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ReactRouterDOM;
-
-/***/ }),
-
 /***/ "redux":
 /*!************************!*\
   !*** external "Redux" ***!
@@ -354,4 +348,4 @@ module.exports = Redux;
 /***/ })
 
 /******/ });
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=appTrunk.js.map

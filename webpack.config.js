@@ -7,7 +7,8 @@ module.exports ={
         jsx: './src/component1.jsx',
         ts: './src/test.ts',*/
         app: './src/app/app.tsx',
-        appMob: './src/app-mob/app.tsx'
+        appMob: './src/app-mob/app.tsx',
+        appTrunk: './src/app-trunk/app.tsx'
     },
     output: {
         filename: '[name].js',
