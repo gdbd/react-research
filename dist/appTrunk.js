@@ -167,7 +167,7 @@ var reducer_1 = __webpack_require__(/*! ./reducer */ "./src/app-trunk/reducer.ts
 var redux_thunk_1 = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 function init(container) {
     var store = redux_1.createStore(reducer_1.reducer, new state_1.AppState(), redux_1.applyMiddleware(redux_thunk_1.default));
-    store.dispatch({ type: "INIT", message: "initial saga", temp: "enter message" });
+    store.dispatch({ type: "INIT", message: "initial thunk", temp: "enter message" });
     ReactDOM.render(React.createElement(react_redux_1.Provider, { store: store },
         React.createElement(component2_1.Component2, null)), document.getElementById(container));
 }
@@ -193,7 +193,7 @@ var __extends = (this && this.__extends) || (function () {
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
             function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }

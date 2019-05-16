@@ -8,7 +8,8 @@ module.exports ={
         ts: './src/test.ts',*/
         app: './src/app/app.tsx',
         appMob: './src/app-mob/app.tsx',
-        appTrunk: './src/app-trunk/app.tsx'
+        appTrunk: './src/app-trunk/app.tsx',
+        appSaga: './src/app-saga/app.tsx'
     },
     output: {
         filename: '[name].js',
