@@ -7,6 +7,7 @@ module.exports ={
         jsx: './src/component1.jsx',
         ts: './src/test.ts',*/
         app: './src/app/app.tsx',
+        'app-list' : './src/app-list/app.tsx',
         appMob: './src/app-mob/app.tsx',
         appTrunk: './src/app-trunk/app.tsx',
         appSaga: './src/app-saga/app.tsx'
