@@ -3,12 +3,10 @@ const path = require('path')
 module.exports ={
     mode: 'development',
     entry: {
-      /*  js: './src/test.js', 
-        jsx: './src/component1.jsx',
-        ts: './src/test.ts',*/
         app: './src/app/app.tsx',
         'app-list' : './src/app-list/app.tsx',
-        appMob: './src/app-mob/app.tsx',
+        'hook-test' : './src/hook-test/app.tsx',
+       // appMob: './src/app-mob/app.tsx',
         appTrunk: './src/app-trunk/app.tsx',
         appSaga: './src/app-saga/app.tsx'
     },
