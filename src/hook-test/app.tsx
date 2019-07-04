@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { List } from './component'
 
-function init(container: string) {
+const init = (container: string) => {
     ReactDOM.render(
 
             <List/>,

@@ -9,7 +9,7 @@ import { reducer } from './reducer'
 
 
 
-function init(container: string) {
+const init = (container: string) => {
     const store = createStore(reducer, new AppState())
     store.dispatch({ type: "INIT" })
     ReactDOM.render(

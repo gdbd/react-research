@@ -10,7 +10,7 @@ import { AppState } from './state'
 import { reducer } from './reducer'
 import mySaga from './sagas'
 
-function init(container: string) {
+const init = (container: string) => {
 
     const sagaMw = createSagaMiddleware()
     const store = createStore(reducer, new AppState(), applyMiddleware(sagaMw))

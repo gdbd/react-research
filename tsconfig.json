@@ -3,11 +3,26 @@
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
-        "module": "commonjs",
+
         "target": "es5",
         "jsx": "react",
-        "lib": ["dom", "es5", ",es2015"],
-        "experimentalDecorators": true
+        "lib": ["dom", "es5", "es2015"],
+       // "experimentalDecorators": true,
+        "module": "esnext",
+        "noEmit": true,
+        "pretty": true,
+        "preserveConstEnums": true,
+        "allowJs": false,
+        "strictNullChecks": false,
+       // "noUnusedLocals": true,
+        "downlevelIteration": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "isolatedModules": true,
+        "noLib": false,
+        "baseUrl": "./src",
+        "types": ["node"],
+        "plugins": []
     },
     "include": [
         "./src/**/*"

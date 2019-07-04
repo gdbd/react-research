@@ -9,7 +9,7 @@ import { reducer } from './reducer'
 import { HashRouter, BrowserRouter, Switch, Route } from 'react-router-dom'
 
 
-function init(container: string) {
+const init = (container: string) => {
     const store = createStore(reducer, new AppState())
 
     /*store.subscribe(() => {

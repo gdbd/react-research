@@ -1,11 +1,16 @@
 import * as React from 'react'
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 export const List = () => {
 
     const [items, add] = useState(["asd", "zxc"]);
     const [count, setCount] = useState(0);
     const [count2, setCount2] = useState(100);
+
+    useEffect(() =>{
+
+        console.log('effect there');
+    });
 
     return <div>
         <div>{count}</div>

@@ -1,4 +1,5 @@
 const path = require('path')
+const babelCfg = require('./babel.config')
 
 module.exports ={
     mode: 'development',
@@ -6,7 +7,7 @@ module.exports ={
         app: './src/app/app.tsx',
         'app-list' : './src/app-list/app.tsx',
         'hook-test' : './src/hook-test/app.tsx',
-       // appMob: './src/app-mob/app.tsx',
+        appMob: './src/app-mob/app.tsx',
         appTrunk: './src/app-trunk/app.tsx',
         appSaga: './src/app-saga/app.tsx'
     },
@@ -19,17 +20,28 @@ module.exports ={
         extensions: [".ts", ".tsx", ".js", ".json"]
     },
     module: {
-        rules:[{
+        rules:[
+            /*{
             test: [/\.js$/, /\.jsx$/],
             exclude: /node_modules/,          
             loader: 'babel-loader',
             query: {
                 presets: ['env','react']              
             }            
-        },{
+        },*/
+            {
             test: /\.tsx?$/,
-            loader: "awesome-typescript-loader"
-        },{
+            use: {
+                loader: "babel-loader",
+                options: {
+                    cacheDirectory: false,
+                    babelrc: false,
+                    presets: babelCfg.presets,
+                    plugins: babelCfg.plugins
+                }
+            }
+        }
+        /*,{
             enforce: "pre",
             test: /\.js$/,
             loader: "source-map-loader"
@@ -39,7 +51,7 @@ module.exports ={
             options:{
                 modules: true
             }
-        }]
+        }*/]
     },
     externals: {
         lodash:{

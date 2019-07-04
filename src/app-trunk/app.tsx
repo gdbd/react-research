@@ -7,7 +7,7 @@ import { AppState } from './state'
 import { reducer } from './reducer'
 import thunk from 'redux-thunk'
 
-function init(container: string) {
+const init = (container: string) => {
     const store = createStore(reducer, new AppState(), applyMiddleware(thunk))
 
     store.dispatch({ type: "INIT", message: "initial thunk", temp: "enter message" })
