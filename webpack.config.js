@@ -9,7 +9,8 @@ module.exports ={
         'hook-test' : './src/hook-test/app.tsx',
         appMob: './src/app-mob/app.tsx',
         appTrunk: './src/app-trunk/app.tsx',
-        appSaga: './src/app-saga/app.tsx'
+        appSaga: './src/app-saga/app.tsx',
+        'use-global': './src/use-global'
     },
     output: {
         filename: '[name].js',

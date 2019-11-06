@@ -22,6 +22,7 @@
         "noLib": false,
         "baseUrl": "./src",
         "types": ["node"],
+        "typeRoots": ["./src/_typing"],
         "plugins": []
     },
     "include": [
