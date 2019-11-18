@@ -1,7 +1,10 @@
 const path = require('path')
-const babelCfg = require('./babel.config')
+const babelCfg = require('./babel.config');
 
-module.exports ={
+
+
+const client = {
+    target: 'web',
     mode: 'development',
     entry: {
         app: './src/app/app.tsx',
@@ -72,4 +75,14 @@ module.exports ={
         compress: false,
         port: 3600
     }
-}
+};
+
+
+const server = Object.assign({
+    target: 'node',
+    entry: {
+        server: './src/server/index.ts'
+    }
+}, client);
+
+module.exports = [client, server];

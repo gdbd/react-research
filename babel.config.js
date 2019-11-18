@@ -20,7 +20,7 @@ module.exports = function(api) {
             {
                 targets: '> 0.5%, last 2 versions, ie 10',
                 useBuiltIns: 'usage',
-                corejs: '3.1.3'
+                corejs: '3.4.1'
             }
         ],
         '@babel/preset-react'
