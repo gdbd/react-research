@@ -84,8 +84,9 @@ const server = {
     ...client,
     target: 'node',
     entry: {
-        server: './src/server/index.ts'
-    }
+        server: './src/server/index.tsx'
+    },
+    externals:{}
 };
 
 console.log('target', target);
