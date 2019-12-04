@@ -1,7 +1,9 @@
 const path = require('path')
 const babelCfg = require('./babel.config');
+const nconf = require('nconf');
+nconf.argv().env();
 
-
+const target = nconf.get('target');
 
 const client = {
     target: 'web',
@@ -78,11 +80,16 @@ const client = {
 };
 
 
-const server = Object.assign({
+const server = {
+    ...client,
     target: 'node',
     entry: {
         server: './src/server/index.ts'
     }
-}, client);
+};
 
-module.exports = [client, server];
+console.log('target', target);
+
+var config = target === 'web' ? client : server;
+
+module.exports = config;
