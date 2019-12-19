@@ -6,7 +6,9 @@ export const DefaultPage = () => {
         <title>default page</title>
     </head>
     <body>
-        <h3>test</h3>
+        <h3></h3>
+        <button value="" onClick={() => alert(1)}/>
+        <script src="mount.js"></script>
     </body>
     </html>;
 };

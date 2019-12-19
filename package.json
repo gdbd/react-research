@@ -16,8 +16,9 @@
         "mobx-react": "5.3.6"
     },
     "scripts": {
-        "build": "webpack --target web",
-        "build-server": "webpack --target node",
+        "build": "webpack --module web",
+        "build-server": "webpack --module node",
+        "build-mount": "webpack --module mount",
         "debug-webpack": "node --inspect-brk webpack.config.js  node_modules/webpack/bin/webpack.js",
         "serve": "node dist/server.js"
     },

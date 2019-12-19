@@ -3,7 +3,8 @@ const babelCfg = require('./babel.config');
 const nconf = require('nconf');
 nconf.argv().env();
 
-const target = nconf.get('target');
+// const target = nconf.get('target');
+const modul = nconf.get('module');
 
 const client = {
     target: 'web',
@@ -71,11 +72,6 @@ const client = {
         "react-redux": "ReactRedux",
         "react-router-dom": "ReactRouterDOM",
         "mobx": "mobx"
-    },
-    devServer:{
-        contentBase: path.join(__dirname, 'dist'),
-        compress: false,
-        port: 3600
     }
 };
 
@@ -89,8 +85,14 @@ const server = {
     externals:{}
 };
 
-console.log('target', target);
+const mount = {
+    ...client,
+    entry: {
+        'mount': './src/server/mount.tsx'
+    },
+    externals:{}
+};
 
-var config = target === 'web' ? client : server;
+var config = modul === 'web' ? client : modul === 'mount' ? mount : server;
 
 module.exports = config;
