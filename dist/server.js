@@ -27469,6 +27469,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dom/server */ "./node_modules/react-dom/server.js");
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _pages_default__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/default */ "./src/server/pages/default.tsx");
+/* harmony import */ var serve_static__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! serve-static */ "./node_modules/serve-static/index.js");
+/* harmony import */ var serve_static__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(serve_static__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -27477,6 +27480,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var app = express__WEBPACK_IMPORTED_MODULE_1__();
+app.use('/static', Object(serve_static__WEBPACK_IMPORTED_MODULE_7__["serveStatic"])('/'));
 app.use('/mount.js', function (req, res) {
   console.log(req.originalUrl);
   var pat = path__WEBPACK_IMPORTED_MODULE_3___default.a.join(__dirname, 'mount.js');

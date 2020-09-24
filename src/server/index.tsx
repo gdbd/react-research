@@ -5,8 +5,11 @@ import {Application} from "express";
 import * as React from 'react'
 import {renderToString } from 'react-dom/server';
 import {DefaultPage} from './pages/default';
+import { serveStatic } from 'serve-static';
 
 const app: Application = express();
+
+app.use('/static', serveStatic('/'));
 
 app.use('/mount.js', (req, res) => {
     console.log(req.originalUrl);
@@ -23,7 +26,6 @@ app.use('/mount.js', (req, res) => {
         }
     });
 });
-
 
 app.use('/', (req, res) => {
     const str = renderToString(<DefaultPage />)
