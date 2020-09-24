@@ -1,0 +1,32 @@
+{
+    "version": "1.0.0",
+    "name": "first-test-package",
+    "private": true,
+    "dependencies": {
+        "typescript": "2.6.2",
+        "gulp": "3.9.1",
+        "gulp-typescript": "4.0.0-alpha.1",
+        "merge2": "1.2.1",
+        "react": "16.2.0",
+        "react-dom": "16.2.0",
+        "browserify": "15.2.0",
+        "browserify-shim": "3.8.14",
+        "vinyl-source-stream": "2.0.0",
+        "vinyl-buffer": "1.0.1",
+        "gulp-dart": "0.2.4",
+        "lodash": "4.17.5",
+        "babel-core": "6.26.0",
+        "babel-preset-react": "6.24.1",
+        "babel-preset-env": "1.6.1",
+        "gulp-babel": "7.0.1"
+    },
+    "browserify": {
+        "transform": [
+            "browserify-shim"
+        ]
+    },
+    "browserify-shim": {
+        "react": "global:React",
+        "react-dom": "global:ReactDOM"
+    }
+}
