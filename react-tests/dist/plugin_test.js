@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 var component1 = function component1() {
-  react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", null, "content1"));
+  react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("vid", null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("naps", null, "content1"));
 };
 
 /***/ }),
