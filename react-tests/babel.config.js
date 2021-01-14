@@ -1,9 +1,6 @@
 module.exports = function(api) {
-   // var isTest = api && api.env('test');
-
     api.cache.never();
 
-    // You can use isTest to determine what presets and plugins to use.
     var babelPlugins = [
         '@babel/plugin-transform-runtime',
         '@babel/plugin-transform-typescript',
