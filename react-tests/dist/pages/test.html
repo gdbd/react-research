@@ -12,20 +12,23 @@
         <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
         <script crossorigin src="https://unpkg.com/redux@4.0.0/dist/redux.js"></script>
         <script crossorigin src="https://unpkg.com/react-redux@5.0.7/dist/react-redux.js"></script>
-       
-
+        <script crossorigin src="https://unpkg.com/react-router-dom@4.3.1/umd/react-router-dom.js"></script>
+        <script crossorigin src="https://unpkg.com/mobx@5.6.0/lib/mobx.umd.min.js"></script>
+        <script crossorigin src="https://unpkg.com/redux-thunk@2.3.0/dist/redux-thunk.js"></script>
               
-
-        <script src="appSaga.js"></script>
+        <script src="../app.js"></script>
+        <script src="../appMob.js"></script>
+        <script src="../appTrunk.js"></script>
     </head>
     <body> 
 
         <div id="container1"></div>
 
+        <div id="container2"></div>
 
         <script>   
-            window.global.init.appSaga("container1")
-       
+            window.global.init.app("container1")
+            window.global.init.appmob("container2")
         </script>
     </body>
 </html>

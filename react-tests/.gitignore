@@ -1,3 +1,5 @@
 /node_modules/
 yarn-error.log
 .idea
+/dist/vendor.js
+/dist/vendor.js.map
