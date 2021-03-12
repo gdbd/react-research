@@ -2,7 +2,7 @@ module.exports = function(api) {
     api.cache.never();
 
     var babelPlugins = [
-        './plugins/test-plugin',
+      //  './plugins/test-plugin',
 
         '@babel/plugin-transform-runtime',
         '@babel/plugin-transform-typescript',
