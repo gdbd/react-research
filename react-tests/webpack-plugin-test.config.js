@@ -1,5 +1,5 @@
 const path = require("path");
-const babelCfg = require("./babel.config");
+const babelCfg = require("./babel.config.test");
 
 const client = {
   mode: "development",
@@ -14,6 +14,20 @@ const client = {
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"]
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          chunks: "all",
+          name: "vendor",
+          enforce: true,
+          priority: -10,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  },
   module: {
     rules: [
       {
@@ -24,24 +38,11 @@ const client = {
             cacheDirectory: false,
             babelrc: false,
             presets: babelCfg.presets,
-            plugins: babelCfg.plugins
+            plugins: babelCfg.pluginsTest
           }
         }
       }
     ]
-  },
-  externals: {
-    lodash: {
-      commonjs: "lodash",
-      amd: "lodash",
-      root: "_" // indicates global variable
-    },
-    react: "React",
-    "react-dom": "ReactDOM",
-    redux: "Redux",
-    "react-redux": "ReactRedux",
-    "react-router-dom": "ReactRouterDOM",
-    mobx: "mobx"
   }
 };
 
